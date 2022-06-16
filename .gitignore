@@ -1,0 +1,13 @@
+/target/
+.DS_Store
+.classpath
+.idea/
+.project
+.settings/
+bin/
+/.metadata/
+.iml
+__pycache__
+*.db
+user.txt
+.vscode/
