@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}history{% endblock %}
+{% block content %}
+
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+
+<meta http-equiv="refresh" content="10" >
+
+<h1>History Order</h1>
+<style>
+	.progress{
+		position: relative;
+		width: 210px;
+		height: 30px;
+		background: #9cbab4;
+		border-radius: 5px;
+		overflow: hidden;
+	}
+	.progress__fill{
+		height: 100%;
+		background: #00ff22;
+		transition: all 1s;
+	}
+	
+	.progress_text{
+		position: absolute;
+		top: 50%;
+		right: 5px;
+
+	}
+
+</style>
+<table class="table">
+<thead>
+<tr>
+<th width="33%">Order ID</th>
+<th width="25%">Status</th>
+<th width="25%">Time</th>
+<th width="25%">Food progress</th>
+<th width= "25%">Action</th>
+</tr>
+</thead>
+	<tbody>
+	<form method="post">
+		{% for x in range(order_list |length) %}
+		<tr>
+			<td>{{order_list[x]}}</td>
+			{% if order_list[x].prepared == 0 %}
+			<td>Waiter will process your order</td>
+			{%  elif order_list[x].prepared == 1 %}
+			<td>waiting kitchen to confirm </td>
+	
+			{%  elif order_list[x].prepared == 2 %}
+			<td>cooking in progress </td>
+
+			{%  elif order_list[x].prepared == 3 %}
+			<td>Due to be served </td>
+
+			{% endif %}
+			<td><span id="datetime"></span>
+
+			<script>
+				var dt = new Date();
+				document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+			</script>
+			</td>
+			<td>
+				<div class="progress">
+					<div class="progress__fill"></div>
+					<span class="progress__text"></span>
+					{%if order_list[x].prepared == 0%}
+						<span class="progress__text"></span>
+						<style>
+							.progress__fill{
+								width: 0%;
+							}
+						</style>
+					{%elif order_list[x].prepared == 1%}
+						<span class="progress__text"></span>
+						
+						<style>
+							.progress__fill{
+								width: 33%;
+							}
+						</style>
+					{%elif order_list[x].prepared == 2%}
+						<span class="progress__text"></span>
+						<style>
+							.progress__fill{
+								width: 66%;
+							}
+						</style>	
+					{%elif order_list[x].prepared == 3%}
+						<span class="progress__text"></span>
+						<style>
+							.progress__fill{
+								width: 100%;
+							}
+						</style>	
+					{%endif%}
+				</div>
+			</td>
+			<td>
+			
+				{%if order_list[x].prepared == 3%}	
+					<button class ="button" type="submit" name = "{{order_list[x].id}}" >Pay now</button>
+
+				{%endif%}
+			</form>
+			</td>
+		
+		</tr>
+		{% endfor %}
+	</form>
+	</tbody>
+	
+</table>
+{% endblock %}

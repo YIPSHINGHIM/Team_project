@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    waiter_notific
+{%endblock%}
+{% block content %}
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+
+<br>
+<h3>All your notifications will be listed below.</h3>
+<br>
+<h1>Users that need help: </h1>
+<br>
+
+
+<!-- prints all customers name that need help -->
+<form>
+    {% if queryList[0] == null %}
+        <h3>No new notifications</h3>
+    {% else %}
+        {% for x in queryList[x] %}
+            <h3>{{queryList[x].firstName}}</h3>
+        {% endfor %}
+    {% endif %}
+</form>
+
+
+{% endblock %}

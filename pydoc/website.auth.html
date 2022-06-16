@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module website.auth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="website.html"><font color="#ffffff">website</font></a>.auth</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/him/Library/CloudStorage/OneDrive-RoyalHollowayUniversityofLondon/royal%20hollway/Year%202/CS2810%20Team%20Project/fork_repo_1/TeamProject2022_13/website/auth.py">/Users/him/Library/CloudStorage/OneDrive-RoyalHollowayUniversityofLondon/royal hollway/Year 2/CS2810 Team Project/fork_repo_1/TeamProject2022_13/website/auth.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="email.html">email</a><br>
+</td><td width="25%" valign=top><a href="flask_login.html">flask_login</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-category"><strong>category</strong></a>(chr, /)</dt><dd><tt>Returns&nbsp;the&nbsp;general&nbsp;category&nbsp;assigned&nbsp;to&nbsp;the&nbsp;character&nbsp;chr&nbsp;as&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-change_menu"><strong>change_menu</strong></a>()</dt><dd><tt>Allows&nbsp;waiters&nbsp;to&nbsp;make&nbsp;items&nbsp;available&nbsp;and&nbsp;unavailable<br>
+&nbsp;<br>
+It&nbsp;loads&nbsp;all&nbsp;of&nbsp;the&nbsp;items&nbsp;from&nbsp;the&nbsp;Item&nbsp;table<br>
+and&nbsp;if&nbsp;a&nbsp;button&nbsp;is&nbsp;pressed&nbsp;to&nbsp;change&nbsp;it,&nbsp;it&nbsp;edits&nbsp;the&nbsp;status<br>
+field&nbsp;of&nbsp;the&nbsp;item&nbsp;in&nbsp;the&nbsp;table&nbsp;called&nbsp;Item<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+data&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;all&nbsp;items&nbsp;in&nbsp;the&nbsp;table&nbsp;Item<br>
+item&nbsp;:&nbsp;field<br>
+&nbsp;&nbsp;&nbsp;&nbsp;row&nbsp;of&nbsp;the&nbsp;item&nbsp;that&nbsp;needs&nbsp;to&nbsp;be&nbsp;changed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Render_template<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;which&nbsp;holds&nbsp;the&nbsp;menu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+@author&nbsp;:&nbsp;Mashhood&nbsp;Manzoor<br>
+@author&nbsp;:&nbsp;Harveen&nbsp;Chada</tt></dd></dl>
+ <dl><dt><a name="-contact"><strong>contact</strong></a>()</dt><dd><tt>rendering&nbsp;the&nbsp;contact&nbsp;page&nbsp;<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Return&nbsp;render_template&nbsp;function&nbsp;to&nbsp;render&nbsp;contact.html<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Harveen&nbsp;Chada</tt></dd></dl>
+ <dl><dt><a name="-has_number"><strong>has_number</strong></a>(inputString)</dt></dl>
+ <dl><dt><a name="-has_specialC"><strong>has_specialC</strong></a>(inputString)</dt></dl>
+ <dl><dt><a name="-history"><strong>history</strong></a>()</dt><dd><tt>Displays&nbsp;current&nbsp;users&nbsp;order&nbsp;history<br>
+&nbsp;<br>
+It&nbsp;loads&nbsp;all&nbsp;of&nbsp;the&nbsp;users&nbsp;orders&nbsp;and&nbsp;puts&nbsp;them&nbsp;in&nbsp;a&nbsp;table<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+order_list&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;to&nbsp;store&nbsp;orders<br>
+root&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;all&nbsp;of&nbsp;the&nbsp;users&nbsp;orders<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Render_template<br>
+&nbsp;&nbsp;&nbsp;&nbsp;order_list&nbsp;which&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;users&nbsp;orders<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Mashhood&nbsp;Manzoor</tt></dd></dl>
+ <dl><dt><a name="-kitchen"><strong>kitchen</strong></a>()</dt><dd><tt>Displays&nbsp;orders&nbsp;for&nbsp;kitchen&nbsp;staffs&nbsp;in&nbsp;a&nbsp;table<br>
+&nbsp;<br>
+It&nbsp;loads&nbsp;data&nbsp;from&nbsp;class&nbsp;Kitchen&nbsp;that&nbsp;is&nbsp;sent&nbsp;from&nbsp;'/orders'<br>
+and&nbsp;list&nbsp;them&nbsp;in&nbsp;a&nbsp;table&nbsp;with&nbsp;different&nbsp;attributes.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+item_list&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;all&nbsp;menus&nbsp;in&nbsp;class&nbsp;Item<br>
+kitchen_list&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;all&nbsp;Orders&nbsp;in&nbsp;class&nbsp;Kitchen<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Render_template<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kitchen_site.html&nbsp;for&nbsp;order&nbsp;page,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;food_img&nbsp;for&nbsp;images&nbsp;of&nbsp;selected&nbsp;menus,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;item_list&nbsp;for&nbsp;list&nbsp;of&nbsp;all&nbsp;menus,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kitchen_list&nbsp;for&nbsp;list&nbsp;of&nbsp;all&nbsp;orders&nbsp;in&nbsp;kitchen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Hyunwoo&nbsp;Kim<br>
+@author&nbsp;:&nbsp;Shing&nbsp;him&nbsp;Yip</tt></dd></dl>
+ <dl><dt><a name="-login"><strong>login</strong></a>()</dt><dd><tt>rendering&nbsp;the&nbsp;login&nbsp;page&nbsp;<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Return&nbsp;render_template&nbsp;function&nbsp;to&nbsp;render&nbsp;login.html&nbsp;template<br>
+Return&nbsp;boolean&nbsp;to&nbsp;see&nbsp;the&nbsp;user&nbsp;logged&nbsp;in&nbsp;or&nbsp;not<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Harry&nbsp;Webster</tt></dd></dl>
+ <dl><dt><a name="-logout"><strong>logout</strong></a>()</dt><dd><tt>letting&nbsp;user&nbsp;to&nbsp;log&nbsp;out&nbsp;the&nbsp;account<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Return&nbsp;redirect&nbsp;function&nbsp;to&nbsp;render&nbsp;the&nbsp;home&nbsp;page<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Harry&nbsp;Webster</tt></dd></dl>
+ <dl><dt><a name="-name"><strong>name</strong></a>(...)</dt><dd><tt>Returns&nbsp;the&nbsp;name&nbsp;assigned&nbsp;to&nbsp;the&nbsp;character&nbsp;chr&nbsp;as&nbsp;a&nbsp;string.<br>
+&nbsp;<br>
+If&nbsp;no&nbsp;name&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if&nbsp;not&nbsp;given,<br>
+ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+ <dl><dt><a name="-order"><strong>order</strong></a>()</dt><dd><tt>Displays&nbsp;cart(basket)&nbsp;page&nbsp;for&nbsp;customers<br>
+&nbsp;<br>
+It&nbsp;loads&nbsp;data&nbsp;from&nbsp;cart.py&nbsp;that&nbsp;is&nbsp;added&nbsp;from&nbsp;'/submenu'&nbsp;&nbsp;<br>
+by&nbsp;customer&nbsp;to&nbsp;be&nbsp;ordered.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+item_list&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;all&nbsp;menus&nbsp;in&nbsp;class&nbsp;Item<br>
+data&nbsp;:&nbsp;dict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dictionary&nbsp;of&nbsp;all&nbsp;items&nbsp;that&nbsp;is&nbsp;added&nbsp;in&nbsp;Order&nbsp;class.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Render_template<br>
+&nbsp;&nbsp;&nbsp;&nbsp;order_page_1.html&nbsp;for&nbsp;order&nbsp;page,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cart_price&nbsp;for&nbsp;total&nbsp;price,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;for&nbsp;ordered&nbsp;items&nbsp;in&nbsp;cart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;food_img&nbsp;for&nbsp;images&nbsp;of&nbsp;selected&nbsp;menus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;item_list&nbsp;for&nbsp;list&nbsp;of&nbsp;all&nbsp;menus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Mashhood&nbsp;Manzoor<br>
+@author&nbsp;:&nbsp;Hyunwoo&nbsp;Kim<br>
+@author&nbsp;:&nbsp;Harveen&nbsp;Chada<br>
+@author&nbsp;:&nbsp;Shing&nbsp;him&nbsp;Yip</tt></dd></dl>
+ <dl><dt><a name="-orders"><strong>orders</strong></a>()</dt><dd><tt>Displays&nbsp;orders&nbsp;for&nbsp;waiters&nbsp;in&nbsp;a&nbsp;table<br>
+&nbsp;<br>
+It&nbsp;loads&nbsp;data&nbsp;from&nbsp;class&nbsp;Order&nbsp;that&nbsp;is&nbsp;added&nbsp;from&nbsp;'/order'<br>
+and&nbsp;list&nbsp;them&nbsp;in&nbsp;a&nbsp;table&nbsp;with&nbsp;different&nbsp;attributes.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+item_list&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;all&nbsp;menus&nbsp;in&nbsp;class&nbsp;Item<br>
+order_list&nbsp;:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;all&nbsp;Orders&nbsp;in&nbsp;class&nbsp;Order<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Render_template<br>
+&nbsp;&nbsp;&nbsp;&nbsp;order_page_1.html&nbsp;for&nbsp;order&nbsp;page,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cart_price&nbsp;for&nbsp;total&nbsp;price,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;for&nbsp;ordered&nbsp;items&nbsp;in&nbsp;cart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;food_img&nbsp;for&nbsp;images&nbsp;of&nbsp;selected&nbsp;menus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;item_list&nbsp;for&nbsp;list&nbsp;of&nbsp;all&nbsp;menus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Mashhood&nbsp;Manzoor<br>
+@author&nbsp;:&nbsp;Hyunwoo&nbsp;Kim<br>
+@author&nbsp;:&nbsp;Shing&nbsp;him&nbsp;Yip</tt></dd></dl>
+ <dl><dt><a name="-sign_up"><strong>sign_up</strong></a>()</dt><dd><tt>rendering&nbsp;the&nbsp;sign&nbsp;page&nbsp;<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Return&nbsp;redirect&nbsp;function&nbsp;to&nbsp;render&nbsp;the&nbsp;home&nbsp;page&nbsp;if&nbsp;the&nbsp;user&nbsp;already&nbsp;existing&nbsp;or&nbsp;error<br>
+Return&nbsp;render_template&nbsp;function&nbsp;to&nbsp;render&nbsp;sign.html&nbsp;template&nbsp;if&nbsp;user&nbsp;sign&nbsp;up&nbsp;successful<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Harry&nbsp;Webster<br>
+@author&nbsp;:&nbsp;Harveen&nbsp;Chada<br>
+@author&nbsp;:&nbsp;Mashhood&nbsp;Manzoor<br>
+@author&nbsp;:&nbsp;Hyunwoo&nbsp;Kim</tt></dd></dl>
+ <dl><dt><a name="-staff_login"><strong>staff_login</strong></a>()</dt></dl>
+ <dl><dt><a name="-submenu"><strong>submenu</strong></a>()</dt><dd><tt>Displays&nbsp;menu&nbsp;page&nbsp;for&nbsp;customers.<br>
+&nbsp;<br>
+It&nbsp;loads&nbsp;item&nbsp;from&nbsp;database&nbsp;using&nbsp;sqlAlchemy&nbsp;to&nbsp;show&nbsp;the&nbsp;menu&nbsp;items<br>
+with&nbsp;different&nbsp;conditions.<br>
+&nbsp;<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+starters_data&nbsp;:&nbsp;Item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menus&nbsp;for&nbsp;starters&nbsp;(type&nbsp;id&nbsp;=&nbsp;1)<br>
+main_data&nbsp;:&nbsp;Item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menus&nbsp;for&nbsp;main&nbsp;dishes&nbsp;(typ&nbsp;id&nbsp;=&nbsp;2)<br>
+desserts_data&nbsp;:&nbsp;Item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menus&nbsp;for&nbsp;desserts&nbsp;(typ&nbsp;id&nbsp;=&nbsp;3)<br>
+drinks_data&nbsp;:&nbsp;Item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menus&nbsp;for&nbsp;drinks&nbsp;(typ&nbsp;id&nbsp;=&nbsp;4)<br>
+alcohol_data&nbsp;:&nbsp;Item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menus&nbsp;for&nbsp;alcohol&nbsp;(typ&nbsp;id&nbsp;=&nbsp;5)<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Render_template<br>
+&nbsp;&nbsp;&nbsp;&nbsp;submenu.html&nbsp;for&nbsp;menu&nbsp;page,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;starters_data&nbsp;for&nbsp;starters,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main_data&nbsp;for&nbsp;main&nbsp;dishes,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;desserts_data&nbsp;for&nbsp;desserts,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drinks_data&nbsp;for&nbsp;drinks,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alcohol_data&nbsp;for&nbsp;alcohols,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;food_img&nbsp;for&nbsp;images&nbsp;of&nbsp;selected&nbsp;menus<br>
+&nbsp;<br>
+@author&nbsp;:&nbsp;Hyunwoo&nbsp;Kim<br>
+@author&nbsp;:&nbsp;Shing&nbsp;him&nbsp;Yip<br>
+@author&nbsp;:&nbsp;Alex&nbsp;Woodcock<br>
+@author&nbsp;:&nbsp;Harveen&nbsp;Chada</tt></dd></dl>
+ <dl><dt><a name="-waiter_notific"><strong>waiter_notific</strong></a>()</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>GET</strong> = b'g'<br>
+<strong>SUCCESS</strong> = SUCCESS<br>
+<strong>auth</strong> = &lt;Blueprint 'auth'&gt;<br>
+<strong>cart</strong> = &lt;website.cart.cart object&gt;<br>
+<strong>current_user</strong> = None<br>
+<strong>db</strong> = &lt;SQLAlchemy engine=None&gt;<br>
+<strong>file</strong> = 'id07_ma2.jpg'<br>
+<strong>food_img</strong> = ['id01_st1.jpg', 'id02_st2.jpg', 'id03_st3.jpg', 'id04_st4.jpg', 'id05_st5.jpg', 'id06_ma1.jpg', 'id07_ma2.jpg', 'id08_ma3.jpg', 'id09_ma4.jpg', 'id10_ma5.jpg', 'id11_al.jpg', 'id12_al.jpg', 'id13_al.jpg', 'id14_al4.jpg', 'id15_al5.jpg', 'id16_ds1.jpg', 'id17_ds2.jpg', 'id18_ds3.jpg', 'id19_ds4.jpg', 'id20_ds5.jpg', ...]<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

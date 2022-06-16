@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+    {# <!-------customer css---------------------------------------------------------------------->#}
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+
+    <section id="contact_css">
+        <div class="Contact_us">
+
+            <h1  style="color: black;">Contact us</h1>
+            <br>
+            <h2 style="color: black;">If you have an inquires or problems, please let us know below!</h2>
+
+            <br>
+            
+
+            <form name="contact" id="contactform" method="POST">
+                <label style="color: black;" for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                <label style="color: black;" for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Your email..">
+
+                <label style="color: black;" for="subject">Message</label>
+                <div class="message_to_us">
+                    <textarea id="message_to_us" name="message_to_us" placeholder="Write something.." name="message"
+                              style="height:150px"></textarea>
+                </div>
+
+                <button class="btn"><a href="customer_thankyou">Submit</a></button>
+            </form>
+        </div>
+
+
+    </section>
+
+{% endblock %}

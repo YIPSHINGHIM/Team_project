@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Waiter-Dashboard{%endblock%}
+{% block content %}
+<style>
+  body {
+    background-color: black;
+  }
+  tr{
+    color: aqua;
+  }
+</style>
+<h1 style="background-color: rgb(211, 211, 255); text-align: center; padding: 40px;">Change Menu</h1>
+<table class="table">
+<thead>
+<tr>
+<th width="5%">Item ID</th>
+<th width="10%">Item Name</th>
+<th width="18%">Available</th>
+<th width="25%">Action </th>
+
+</tr>
+</thead>
+<tbody>
+    <form method="post">
+		{% for x in data %}
+		  <tr>
+        <td>{{x.id}}</td>
+			  <td>{{x.name}}</td>
+        {% if x.is_available==True %}
+        <td>Available</td>
+        <td>
+          <button class="button" type="submit" name="{{x.id}} hide">Make Unavailable</button>
+        </td>
+        {% else %}
+        <td>Unavailable</td>
+        <td>
+          <button class="button" type="submit" name="{{x.id}} show">Make Available</button>
+        </td>
+        {% endif %}
+		  </tr>
+    {% endfor %}
+    </form>
+</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "customer_contact.html" %}
+{% block title %}Thank-you{% endblock %}
+
+{% block content %}
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+    <title> Oaxaca Restaurant - thankyou</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <center><h1> Thank you for contacting us. we will get back to you soon! </h1></center>
+    <center>
+        <button class="button"><a href="/">Home</a></button>
+{% endblock %}

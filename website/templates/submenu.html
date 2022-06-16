@@ -1,0 +1,406 @@
+{% extends "home.html" %}
+{% block title %}Submenu{% endblock %}
+
+
+{% block content %}
+
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+    </head>
+
+    <br>
+    <form method='POST'>
+        <form method='POST'>
+            <button type="submit" onclick="wtr_confi()" name="call_waiter" class="btn btn-primary"> Call
+                Waiter Over
+            </button>
+        </form>
+    </form>
+
+    <section id='sub_menu_page'>
+
+        <div class="container-md">
+            <div class="Submenu">
+                <h1>Oaxaca's delicious Menu!</h1>
+
+
+                <form method="post">
+                <label for="max_calories">Max Calories: </label>
+                <input type="number" id="max_calories" name="max_calories" min="0" max="3000" value="1500"><br>
+
+                <label for="is_vegetarian">Vegetarian: </label>
+                <input type="checkbox" id="is_vegetarian" name="is_vegetarian"><br>
+
+                <label for="is_alcoholic">Non-Alcoholic: </label>
+                <input type="checkbox" id="non_alcoholic" name="non_alcoholic"><br>
+
+                <br>
+                <div class="submit_button_1">
+                    <input type="submit" name="submit_search" id="submit_search" value="Submit Search">
+                </div>
+                </form>
+
+                <br>
+                <div class="button-group filters-button-group">
+                    <button class="button is-checked" id="sBtn" data-filter="*">Show all</button>
+                    <button class="button" id="sBtn" data-filter=".starters">Starters</button>
+                    <button class="button" id="sBtn" data-filter=".main">Mains</button>
+                    <button class="button" id="sBtn" data-filter=".drink">Drinks</button>
+                    <button class="button" id="sBtn" data-filter=".desserts">Desserts</button>
+                    <button class="button" id="sBtn" data-filter=".alcohol">Alcohols</button>
+                </div>
+
+                <div class="grid">
+
+                    {#                    <!-------------starters--------------------------------------------------------------------------------------------------------------->#}
+
+                    {% for starters_datas in starters_data %}
+
+
+                        <div class="element-item col-sm-6 col-lg-4 starters " data-category="starters">
+                            <div class="item_box">
+                                <div class="photo">
+                                    <img src="{{ url_for('static', filename="images/food_img/" +
+                                                food_img[starters_datas.id - 1 ]) }}">
+                                </div>
+                                <div class="description">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <br>
+                                                <h4>&nbsp{{ starters_datas.name }}</h4>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br>
+                                                    <div class="cal">
+
+                                                    <p class="calories">{{ starters_datas.calories }} kcal</p>
+                                                    <br>
+                                                </div>
+                                        
+                                            </div>
+                
+                                            <div class="col-xs-12">
+                                                <p>Best Mexican style starters only at Oaxaca</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="is_vegetarian">{% if 1 == starters_datas.is_vegetarian %} Vegetarian! {% else %} Has meat.{% endif %}</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="is_alcoholic">{% if 1 == starters_datas.is_alcoholic %} Has Alcohol. {% else %} Non-Alcoholic! {% endif %}</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>&nbsp £ {{ starters_datas.price }}</p>
+                                            </div>
+                                            
+                                            <div class="col-md-4">
+                                                <form action="" method="POST">
+
+                                                    {% if current_user.is_authenticated %}
+                                                        <button type="submit" name={{ starters_datas.id }} value=Add
+
+                                                        >Add
+                                                        </button>
+                                                    {% endif %}
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    {% endfor %}
+                    {##}
+                    {#                    <!-------------main------------------------------------------------------------------------------------------>#}
+                    {% for main_datas in main_data %}
+
+                        <div class="element-item col-sm-6 col-lg-4 main " data-category="main">
+                            <div class="item_box">
+                                <div class="photo">
+                                    <img src="{{ url_for('static', filename="images/food_img/" +
+                                                food_img[main_datas.id - 1]) }}">
+                                </div>
+                                <div class="description">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <br>
+                                                <h4>&nbsp{{ main_datas.name }}</h4>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br>
+                                                <div class="cal">
+                                                    <p class="calories">{{ main_datas.calories }} kcal</p>
+                                                <br>
+                                                        
+                                                        
+                                                    </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <p>MUST TRY! Best Mexican food only at OAXACA</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <p class="is_vegetarian">{% if 1 == main_datas.is_vegetarian %} Vegetarian! {% else %} Has meat.{% endif %}</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <p class="is_alcoholic">{% if 1 == main_datas.is_alcoholic %} Has Alcohol. {% else %} Non-Alcoholic! {% endif %}</p>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <p>&nbsp £ {{ main_datas.price }}</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <form action="" method="POST">
+
+                                                    {% if current_user.is_authenticated %}
+                                                        <button type="submit" name={{ main_datas.id }} value=Add
+
+                                                        >Add
+                                                        </button>
+                                                    {% endif %}
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                    {##}
+                    {#                    <!-------------drink------------------------------------------------------------------------------------------>#}
+                    {% for drink_datas in drinks_data %}
+
+                        <div class="element-item col-sm-6 col-lg-4 drink " data-category="drink">
+                            <div class="item_box">
+                                <div class="photo">
+                                    <img src="{{ url_for('static', filename="images/food_img/" +
+                                                food_img[drink_datas.id - 1]) }}">
+                                </div>
+                                <div class="description">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <br>
+                                                <h4>&nbsp{{ drink_datas.name }}</h4>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br>
+                                                <div class="cal">
+                                                    <p class="calories">{{ drink_datas.calories }} kcal</p>
+                                                        <p class="is_vegetarian">{% if 1 == drink_datas.is_vegetarian %} Vegetarian! {% else %} Has meat.{% endif %}</p>
+                                                        <p class="is_alcoholic">{% if 1 == drink_datas.is_alcoholic %} Non-Alcoholic! {% else %} Has Alcohol.{% endif %}</p>
+                                                    </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <p>Best Mexican food only at OAXACA</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <p class="is_vegetarian">{% if 1 == drink_datas.is_vegetarian %} Vegetarian! {% else %} Has meat.{% endif %}</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <p class="is_alcoholic">{% if 1 == drink_datas.is_alcoholic %} Has Alcohol. {% else %}  Non-Alcoholic!{% endif %}</p>
+                                            </div>
+                                            
+                                            <div class="col-md-8">
+                                                <p>&nbsp £ {{ drink_datas.price }}</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <form action="" method="POST">
+
+                                                    {% if current_user.is_authenticated %}
+                                                        <button type="submit" name={{ drink_datas.id }} value=Add
+
+                                                        >Add
+                                                        </button>
+                                                    {% endif %}
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                    {##}
+                    {#                    <!-------------desserts------------------------------------------------------------------------------------------------------------------------------------>#}
+                    {% for desserts_datas in desserts_data %}
+
+                        <div class="element-item col-sm-6 col-lg-4 desserts " data-category="desserts">
+                            <div class="item_box">
+                                <div class="photo">
+                                    <img src="{{ url_for('static', filename="images/food_img/" +
+                                                food_img[desserts_datas.id - 1]) }}">
+                                </div>
+                                <div class="description">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <br>
+                                                <h4>&nbsp{{ desserts_datas.name }}</h4>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br>
+                                                <div class="cal">
+                                                    <p class="calories">{{ desserts_datas.calories }} kcal</p>
+                                                <br>
+                                                        
+                                                        
+                                                    </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <p>Best Mexican food only at OAXACA</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <p class="is_vegetarian">{% if 1 == desserts_datas.is_vegetarian %} Vegetarian! {% else %} Has meat.{% endif %}</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <p class="is_alcoholic">{% if 1 == desserts_datas.is_alcoholic %} Has Alcohol. {% else %}  Non-Alcoholic!{% endif %}</p>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <p>&nbsp £ {{ desserts_datas.price }}</p>
+                                            </div>
+
+                                            
+
+                                            <div class="col-md-4">
+                                                <form action="" method="POST">
+
+                                                    {% if current_user.is_authenticated %}
+                                                        <button type="submit" name={{ desserts_datas.id }} value=Add
+
+                                                        >Add
+                                                        </button>
+                                                    {% endif %}
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                    {##}
+                    {#                    <!-------------alcohol--------------------------------------------------------------------------------------------------------------->#}
+                    {% for alcohol_datas in alcohol_data %}
+
+                        <div class="element-item col-sm-6 col-lg-4 alcohol " data-category="alcohol">
+                            <div class="item_box">
+                                <div class="photo">
+                                    <img src="{{ url_for('static', filename="images/food_img/" +
+                                                food_img[alcohol_datas.id - 1]) }}">
+                                </div>
+                                <div class="description">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <br>
+                                                <h4>&nbsp{{ alcohol_datas.name }}</h4>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br>
+                                                <div class="cal">
+                                                    <p class="calories">{{ alcohol_datas.calories }} kcal</p>
+                                                <br>
+                                    
+                                                        
+                                                    </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <p>>Best Mexican style Drinks only at OAXACA</p>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <p class="is_vegetarian">{% if 1 == alcohol_datas.is_vegetarian %} Vegetarian! {% else %} Has meat.{% endif %}</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <p class="is_alcoholic">{% if 1 == alcohol_datas.is_alcoholic %} Has Alcohol. {% else %}  Non-Alcoholic!{% endif %}</p>
+
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <p>&nbsp £ {{ alcohol_datas.price }}</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <form action="" method="POST">
+
+                                                    {% if current_user.is_authenticated %}
+                                                        <button type="submit" name={{ alcohol_datas.id }} value=Add
+
+                                                        >Add
+                                                        </button>
+                                                    {% endif %}
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="go_to_top_button">
+                <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        function conf() {
+            confirm("Add To Order?");
+        }
+
+        function confi() {
+            confirm("Please confirm that you are ready to place order?");
+        }
+
+        function wtr_confi() {
+            confirm("Do you want to page an attendant");
+            alert("A waitress will be with you shortly");
+        }
+
+    </script>
+
+{% endblock %}

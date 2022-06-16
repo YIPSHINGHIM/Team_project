@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block title %} Kitchen-site{% endblock %} {% block content %}
+
+<meta http-equiv="refresh" content="7" >
+
+<head>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+</head>
+
+<section id="kitchen-site">
+    <div class="dashboard">
+        <div class="container">
+            <h1>KITCHEN DASHBOARD</h1>
+            <br />
+            <br />
+            <div class="row">
+                {# <!-- Dashboard item card --> #}
+                 {% for x in kitchen_list %}
+                <div class="dashboard_item_box">
+                    <div class="container">
+                        <h1>Item {{x.id}}</h1>
+                        <div class="row">
+                            <div class="col-md-4 " style="display: flex;">
+                                <div class="Item_photos_box">
+                                    <img class="img-fluid" src="{{ url_for('static', filename="images/food_img/" +food_img[(x.item_id) - 1]) }}">
+                                </div>
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="Item_info_box">
+                                    <h1>{{x.item_name}}</h1>
+                                    <ul>
+                                        <li style="font-size: 28px;">Ordered Time: {{x.created_date}}</li>
+                                        <li style="font-size: 28px;">Quantity: {{x.item_quantity}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-md-4">
+                                        <div class="confirm_button_box" > 
+                                            <button type="submit" name="{{x.id}} confirm_button_box">
+                                                Confirm order
+                                            </button>
+                                        </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="finished_button_box">
+                                        <button type="submit" name="{{x.id}} finished_button_box">
+                                            Finished
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="call_waiter_to_delete">
+                                        <button type="submit" name="{{x.id}} call_waiter_to_delete">
+                                            request to cancel order  
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

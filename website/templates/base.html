@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {#    <meta name="viewport" content="width=device-width,initial-scale=1"/>#}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,
+  maximum-scale=1.0, minimum-scale=1.0"/>
+
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />#}
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />#}
+
+
+
+{#    <!-----------bootstrap------------------------------------------------------------------------------------------------>#}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+
+    <!-----------css------------------------------------------------------------------------------------------------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {#<!--------font style---------------------------------------#}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Shadows+Into+Light&display=swap"
+          rel="stylesheet">
+
+    <title>{% block title %}Home{% endblock %}</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" id="home" href="/"><img src="{{ url_for('static', filename="images/logo/zblack-logo.png") }} " style = "width:35px; height:auto;"></a>
+            {% if not current_user.is_authenticated %}
+                <a class="nav-item nav-link" id="signUp" href="/customer_signup">Sign Up</a>
+                <a class="nav-item nav-link" id="login" href="/customer_login">Login</a>
+                <a class="nav-item nav-link" id="staff_login" href="/staff_login">Staff login</a>
+                <a class="nav-item nav-link" id="about" href="/customer_about">About</a>
+            {% elif current_user.email.endswith("@OAXACA.com") %}
+                <a class="nav-item nav-link" id="waiter_orders" href="/waiter_orders">View orders</a>
+                <a class="nav-item nav-link" id="change_menu" href="/change_menu">Change Menu</a>
+                <a class="nav-item nav-link" id="Submenu" href="/submenu">Menu</a>
+                <a class="nav-item nav-link" id="order" href="/customer_order">Order</a>
+                {% if current_user.priority == 2 %}
+                    <a class="nav-item nav-link" id="confirm_order" href="/kitchen_dash">Kitchen</a>
+                {%endif%}
+                <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+            {% elif current_user.is_authenticated %}
+                {% if not current_user.email.endswith('OAXACA.com') %}
+                    <a class="nav-item nav-link" id="Submenu" href="/submenu">Menu</a>
+                    <a class="nav-item nav-link" id="order" href="/customer_order">Order</a>
+                    <a class="nav-item nav-link" id="history" href="/customer_history">History</a>
+                    <a class="nav-item nav-link" id="contact" href="/customer_contact">Contact</a>
+                    
+                    <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <h2 style= "color: yellow;"> {% if current_user.is_authenticated %}
+        Welcome, {{ current_user.firstName }}! 
+    {% endif %}
+    </h2>
+
+</nav>
+{% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %} {% if category ==
+      'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %} {% endfor %} {% endif %} {% endwith %}
+
+<div class="container">
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+<!-----------javascript------------------------------------------------------------------------------------------------>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+></script>
+
+<!-- owl slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+<!-- isotope js -->
+<script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+<!-- nice select -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+
+<!-- index js -->
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</body>
+</html>

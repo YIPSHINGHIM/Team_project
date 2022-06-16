@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}view-orders{%endblock%}
+{% block content %}
+
+<meta http-equiv="refresh" content="10" >
+<style>
+	body {
+		background-color: black;
+	}
+	tr,th{
+		color: aqua;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+</style>
+<h1 style="background-color: rgb(211, 211, 255); text-align: center;padding: 40px;">Waiter Order</h1><br><br>
+<table class="table">
+<thead>
+<tr>
+	<th width="7%">Order ID</th>
+	<th width="7%">Table No.</th>
+	<th width="14%">Food name</th>
+	<th width="14%">Status</th>
+	<th width="14%">Time</th>
+	<th width="14%">Action </th>
+	<th width="14%">Customer Paid?</th>
+
+</tr>
+</thead>
+<tbody>
+    <form method="post">
+		{% for x in range(order_list |length) %}
+		<tr>
+			<!-- setting the status of order -->
+			<td>{{order_list[x].id}}</td>
+			<td>{{order_list[x].table_number}}</td>
+                <td>{{item_list[(order_list[x].item_id) - 1].name}}</td>
+				<td>
+					{% if order_list[x].prepared == 0 %}
+						<p>waiting for the waiters to confirm the order</p>
+					{%  elif order_list[x].prepared == 1 %}
+						<p>waiting kitchen to confirm </p>
+					{%  elif order_list[x].prepared == 2 %}
+						<p>cooking in process </p>
+					{%  elif order_list[x].prepared == 3 %}
+						<p>finished please go to kitchen</p>	
+					{%  elif order_list[x].prepared == 4 %}
+						<p>kitchen request to cancel </p>
+					{%  elif order_list[x].prepared == 5 %}
+						<p>order finished</p>
+					{% endif %} 
+ 
+				</td>
+				<td>{{order_list[x].created_date}}</td>
+				<td>
+				
+				{% if order_list[x].prepared == 0 %}
+                <button 
+				style = "background-color: rgb(255, 255, 80) ; border-radius: 10px;
+				padding: 5px ;"
+				class="button" type="submit" name="{{order_list[x].id}} toKitchen">Send order to kitchen</button><br><br>
+			
+
+				{% elif order_list[x].prepared == 3 %}
+				<button style = "background-color: rgb(0, 180, 0);border-radius: 10px;
+				padding: 10px;" class="button" type="submit" name="{{order_list[x].id}} order-finished">delivered to customer  </button>
+				{% endif %} 
+
+				<button style = "background-color: rgba(218, 0, 0, 0.911) ; color: aliceblue; border-radius: 10px;
+				padding: 10px;"class="button" type="submit" name="{{order_list[x].id}} del">  DEL ORDER  </button><br><br>
+
+				<td>
+					<button style = "background-color: cornflowerblue ; padding: 15px; border-radius: 10px; "class="button" type="submit" name="paid">YES</button>
+					<!-- payment status -->
+				</td>
+            </td>
+		</tr>
+		{% endfor %}
+		
+    </form>
+
+</tbody>
+</table>
+
+{% endblock %}

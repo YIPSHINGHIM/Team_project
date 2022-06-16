@@ -1,0 +1,25 @@
+Spring Rolls,0.95,199,1,1,0,10
+Fish&Chips,3.95,510,1,0,0,20
+Sausage&Bacon,4.95,439,1,0,0,10
+Chicken LollyPop,4.9,360,1,0,0,15
+Cheese&Tomato Slice,2.95,210,1,1,0,5
+Chicken Katsu,6.95,605,2,0,0,30
+Rice&Lamb Grill,7.45,756,2,0,0,25
+Marrakesh Veg Curry,5.95,788,2,1,0,20
+Eggplant Lasagne,5.45,865,2,1,0,20
+Roast Beef,6.95,751,2,0,0,30
+Corona Beer,2.45,43.3,5,1,1,0
+Ciroc x3 shots,9.95,291.2,5,1,1,0
+GreyGoose x3 shots,8.95,66,5,1,1,0
+Pornstar Martini,5.95,224,5,1,1,0
+Strawberry Cocktail,4.87,43.3,5,1,1,0
+Oreo Waffle,5.99,432,3,1,0,5
+White Choco Crepe,4.49,122,3,1,0,5
+Banana Crepe,4.5,534,3,1,0,5
+Vanilla for one,2.9,125,3,1,0,5
+Vanilla Tub for two,3.5,250,3,1,0,5
+Fanta,1.95,422,4,1,0,0
+Cola,1.99,1,4,1,0,0
+Lemon Mocktail,4.99,12,4,1,0,0
+Sprite,1.49,40.9,4,1,0,0
+Water,0.99,0,4,1,0,0

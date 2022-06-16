@@ -1,0 +1,5 @@
+starter
+main
+dessert
+drink
+alcohol

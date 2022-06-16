@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}About-page{% endblock %}
+
+
+{% block content %}
+    {# <!-------customer css---------------------------------------------------------------------->#}
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+    <section id="about_page">
+        <br><br>
+        <video width= 1100 height="400" autoplay loop>
+            <source src="{{ url_for('static', filename="images/video/Mexicanfoodvideo.mp4") }}" >
+            Your browser does not support the video tag.
+        </video>
+
+<!--
+        <div class="img_box">
+            <img src="{{ url_for('static', filename="images/home_page_img/home_page_img7.jpeg") }}">
+        </div>
+        //-->
+        <br><br><br>
+        <div class="abt">
+            <h1> About Oaxaca</h1>
+            <br>
+            <h2>
+                Oaxaca is a restaurant group that has been slowly growing it's London and UK presence over the
+                last 10 years and now have 25 restaurants. When they started in 2007, their competitive
+                advantage was their menu, a unique style of Mexican street food and their table service.
+            </h2>
+               
+
+        </div>
+        <br><br><br>
+    </section>
+
+    {# <!-- footer section -------------------------------------------------------------------------------------------> #}
+    <section id="footer">
+        <footer class="footer_section">
+            <div class="container">
+                
+                        <div class="footer_contact">
+                            <h4>
+                                Contact Us
+                            </h4>
+                            <div class="contact_link_box">
+                                <a href="">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>
+                                    Location
+                                </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>
+                                    Call +44 1234567890
+                                </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span>
+                                    customercare_contact@oaxaca.com
+                            </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div><br><br>
+                    <div class="footer_contact">
+                        <div class="footer_detail">
+                            <a href="" class="footer-logo">
+                                OAXACA
+                            </a>
+                            <p>
+                                Oaxaca is a restaurant group that has been slowly growing its London and UK presence
+                                over
+                                the last 10 years and now they have 25 restaurants. When they started in 2007 their
+                                competitive advantage was their menu, a unique style of Mexican street food and their
+                                table
+                                service.
+                            </p>
+                            <div class="footer_social">
+                                <a href="">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_contact">
+                        <h4>
+                            Opening Hours
+                        </h4>
+                        <p>
+                            Everyday
+                        </p>
+                        <p>
+                            10.00 A.M. -10.00 P.M.
+                        </p>
+               
+                <div class="footer-info">
+                    <p>
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
+                        <a href="">Team13</a><br><br>
+                        &copy; <span id="displayYear"></span> Distributed By
+                        <a href="" target="_blank">Team13</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <!-- footer section -->
+
+
+{% endblock %}

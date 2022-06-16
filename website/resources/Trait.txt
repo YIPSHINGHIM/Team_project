@@ -1,0 +1,12 @@
+spicy
+Beef
+Chicken
+Pork
+Mutton
+Fish
+Gluten
+Eggs
+Soy
+Dairy
+Nuts
+Alcohol

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Order-page{% endblock %}
+
+{% block content %}
+    {# <!-------customer css---------------------------------------------------------------------->#}
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+
+    {#    <h1>{{ quantity }}</h1>#}
+    {#    <h1>{{ test }}</h1>#}
+    {#        <h1>itemlist: {{ item_list[2].name }}</h1>#}
+    {#    <h1>{{ data }}</h1>#}
+
+    
+    <section id='order_page'>
+        <div class="orderpage">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col">
+                                <h4><b>Order</b></h4>
+
+                            </div>
+                            <div class="col align-self-center text-right text-muted">{% print(data |length) %}
+                                items
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for x in data %}
+                        <form method="post">
+                            <div class="row main align-items-center">
+                                <div class="col-2"><img class="img-fluid"
+                                                        src="{{ url_for('static', filename="images/food_img/" +
+                                                    food_img[x - 1]) }}"></div>
+                                <div class="col">
+                                    <div class="row text-muted">Item {{ x }}</div>
+                                    <div class="row">{{ item_list[x - 1].name }}</div>
+                                </div>
+                                <div class="col">
+                                    <br>
+                                    <input type="number" name="{{ x }} quantity" min="0" max="20"
+                                           value={{ data[x] }}>
+                                </div>
+                                <div class="col">&pound; {{ '%0.2f'|format((item_list[x - 1].price * data[x])) }}
+                                    <span class="close">&#10005;</span>
+                                </div>
+                                <div class="col">
+                                    <button class="button" type="submit"
+                                            name="{{ x }} del"
+                                    >DEL
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="button" type="submit"
+                                            name="{{ x }} update"
+                                    >update price
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    {% endfor %}
+
+                    <div class="back-to-menu"><a href="/submenu">&leftarrow;</a><span
+                            class="text-muted">Back to menu</span></div>
+                </div>
+                <div class="col-md-4 summary">
+                    <div>
+                        <h5><b>Summary</b></h5>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col" style="padding-left:0;">{{ (data |length) }} Items</div>
+                        <div class="col text-right">&pound; {{ cart_price }}</div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right">&pound; {{ cart_price }}</div>
+                    </div>
+                    <form method="post">
+                        <div class="row">
+                            <div class="col">
+                                <button class="button"><a href="/customer_checkout">CHECKOUT</a></button>
+                                <button class="button" type="submit"  name="ordering">PLACE ORDER</button>
+                                <form method='POST'>
+                                    <button type="submit" class="btn btn-primary" name="help"> NEED HELP? Call waiter over</button>
+                                </form>
+                                <br>
+                                <div class="table_number_div" >
+                                    <div class = "text" id="bloc1">
+                                        <p> table number: </p>
+                                    </div>
+                                    <div class = "table_number_input" id="bloc2" ><input type="number" name = "table_number" min="0" max="20" value="0"></div>                                
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+{% block title %} Home{% endblock %}
+
+{% block content %}
+
+    <head>
+
+        <link rel="icon" href="favicon.ico"/>
+
+        {# <!-------owl css---------------------------------------------------------------------->#}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+              rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+              rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet"/>
+
+        {# <!-------customer css---------------------------------------------------------------------->#}
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+
+        {# <!----------script for view mode-------------------------------> #}
+        <script>
+            function isMobile() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
+
+            function getCookie(b) {
+                var d = document.cookie.split(";");
+                for (var c = 0; c < d.length; c++) {
+                    if (d[c].indexOf("=") == -1) {
+                        if (b == d[c]) {
+                            return ""
+                        }
+                    } else {
+                        var a = d[c].split("=");
+                        if (b == a[0].trim()) {
+                            return unescape(a[1].trim())
+                        }
+                    }
+                }
+            }
+
+            var desktopModeTF = getCookie("DesktopMode");
+            var Scale = getCookie("DesktopModeScale");
+            if (desktopModeTF == "true") {
+                document.write('<meta name="viewport" content="width=1024, user-scalable=yes, initial-scale=' + Scale + '">')
+            } else {
+                document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">')
+            }
+            ;
+        </script>
+    </head>
+
+    
+
+    <section id='home_page'>
+
+{# <!-- logo ------------------------------------------------------> #}
+    <div class="logo1">
+        <img src="{{ url_for('static', filename="images/logo/zblack-logo.png") }} ">
+        <h1 class = "title1">Welcome to our page!</h1>
+    </div>
+
+
+    {#    <!--------image slide ------------------------------------------------------------------->#}
+
+    <div class="container-md">
+        <div class="home_page_img">
+            <div class="owl-carousel owl-theme">
+                {% for x in home_page_img %}
+                    <div class="item">
+                        <img src="{{ url_for('static', filename="images/home_page_img/"+x) }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    {#    <!--------Main section------------------------------------------------------------------->#}
+    <div class="btnblock gap-2">  
+            
+                <!-- <h1>OAXACA MEXICAN RESTAURANT</h1> -->
+                <marquee class = "sub">Premium Mexican Cuisine!</marquee>
+               <br>
+                    <a button="__blank" href="submenu" class="btn shadow btn-bgchange">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤClick me to see our delicious menu!</a> 
+                
+                </div>
+            
+        
+    
+    <br><br><br>
+
+    {#    <!-- offer section -->#}
+    <section id="suggestion_section_in_home_page">
+
+        <h2 style="text-align: center;">Chef Suggestion </h2>
+        <div class="suggestion_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" style="padding :10px">
+                        <div class="box" >
+                            <div class="image_box">
+                                <img src="{{ url_for('static', filename="images/food_img/id06_ma1.jpg") }}">
+                            </div>
+                            <div class="detail-box">
+                                <h2>MUST TRY!</h2> <br>
+                                <p> Best Mexican food only at OAXACA </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding :10px">
+                        <div class="box">
+                            <div class="image_box">
+                                <img src="{{ url_for('static', filename="images/food_img/id07_ma2.jpg") }}">
+                            </div>
+                            <div class="detail-box">
+                                <h2>MUST TRY!</h2> <br>
+                                <p> Best Mexican food only at OAXACA</p>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br>
+
+    
+
+    
+    
+    
+
+
+
+    {# <!-- footer section -------------------------------------------------------------------------------------------> #}
+    <section id="footer">
+        <footer class="footer_section">
+            <div class="container">
+                
+                        <div class="footer_contact">
+                            <h4>
+                                Contact Us
+                            </h4>
+                            <div class="contact_link_box">
+                                <a href="">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>
+                                    Location
+                                </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>
+                                    Call +44 1234567890
+                                </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span>
+                                    customercare_contact@oaxaca.com
+                            </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div><br><br>
+                    <div class="footer_contact">
+                        <div class="footer_detail">
+                            <a href="" class="footer-logo">
+                                OAXACA
+                            </a>
+                            <p>
+                                Oaxaca is a restaurant group that has been slowly growing its London and UK presence
+                                over
+                                the last 10 years and now they have 25 restaurants. When they started in 2007 their
+                                competitive advantage was their menu, a unique style of Mexican street food and their
+                                table
+                                service.
+                            </p>
+                            <div class="footer_social">
+                                <a href="">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_contact">
+                        <h4>
+                            Opening Hours
+                        </h4>
+                        <p>
+                            Everyday
+                        </p>
+                        <p>
+                            10.00 A.M. -10.00 P.M.
+                        </p>
+               
+                <div class="footer-info">
+                    <p>
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
+                        <a href="">Team13</a><br><br>
+                        &copy; <span id="displayYear"></span> Distributed By
+                        <a href="" target="_blank">Team13</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <!-- footer section -->
+
+
+    {#    <!------- javascript for the moble page-------------------------------------------------------------------->#}
+    <script>
+        if (isMobile()) {
+            if (desktopModeTF == "true") {
+                document.write(
+                    '<br><br><br><br><br><br>' +
+                    '<button onclick="undesktopMode()" ' +
+                    'style="width:90%;font-size: 3em;padding:2em;border: gray solid .3em;">Mobile View</button>'
+                );
+            } else {
+                document.write(
+                    '<button onclick="desktopMode()" style="background-color:lightyellow;">Desktop View</button>'
+                )
+            }
+        } else {
+            // nothing
+        }
+
+
+    </script>
+
+    <script>
+        function desktopMode() {
+            alert("Click 'Mobile View button' at the bottom to go back to mobile mode.");
+            document.cookie = "DesktopMode=true";
+            document.cookie = "DesktopModeScale=" + $('html').width() / 1024;
+            window.scrollTo(0, 0);
+            location.reload();
+        }
+
+        function undesktopMode() {
+            document.cookie = "DesktopMode=false";
+            location.reload();
+        }
+    </script>
+
+
+    {#<!-- owl slider -->#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+
+{% endblock %}
+
+
